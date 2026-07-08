@@ -11,3 +11,12 @@ interface User {
 //   age: number;
 // }
 // というオブジェクトの型に User という名前を付けている。
+
+// 同名の宣言は interfaceの場合のみ統合され typeはエラーになる
+interface User {
+  name: string;
+}
+
+interface User {
+  age: number;
+}
