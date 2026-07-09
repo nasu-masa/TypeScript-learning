@@ -1,0 +1,92 @@
+{
+  "compilerOptions": {
+    // =========================
+    // 基本設定
+    // =========================
+
+    "target": "ES2020",
+    // 出力するJavaScriptのバージョン
+    // 実行環境に合わせて変換先を指定する
+
+    "module": "ESNext",
+    // モジュール形式（import/export のルール）を指定
+    // React・Next.jsなどではES Modulesが一般的
+
+    "moduleResolution": "node",
+    // importしたモジュールをNode.jsのルールで検索する
+    // 教材では "node" を使用しているが、TypeScript 6以降では非推奨警告が表示される
+    // 最新のプロジェクトでは "bundler" や "NodeNext" を使用することが多い
+
+    "ignoreDeprecations": "6.0",
+    // TypeScript 6.0で追加された非推奨警告を一時的に表示しない
+    // 教材の設定をそのまま学習するための一時的な対応
+
+    "esModuleInterop": true,
+    // ES ModulesとCommonJSを一緒に扱いやすくする
+    // import文でライブラリを自然に利用できるようにする
+
+    // =========================
+    // 厳格な型チェック
+    // =========================
+
+    "strict": true,
+    // 厳格な型チェックをまとめて有効にする
+    // TypeScriptの恩恵を最大限受けるため基本はtrue推奨
+
+    "noImplicitAny": true,
+    // 暗黙のany型を禁止する
+    // 型の書き忘れによるミスを防ぐ
+
+    "strictNullChecks": true,
+    // null・undefinedを厳密にチェックする
+    // Null参照エラーを防ぐ
+
+    "noImplicitReturns": true,
+    // 戻り値を書き忘れた関数を検出する
+    // return漏れによるバグを防ぐ
+
+    "noUnusedLocals": true,
+    // 使用していないローカル変数を検出する
+    // 不要なコードを減らし、可読性を向上させる
+
+    "noUnusedParameters": true,
+    // 使用していない関数の引数を検出する
+    // 不要な引数の残し忘れを防ぐ
+
+    // =========================
+    // 出力設定
+    // =========================
+
+    "outDir": "./dist",
+    // コンパイル後のJavaScriptを出力するディレクトリ
+    // TypeScriptと生成物を分けて管理しやすくする
+
+    "rootDir": "./src",
+    // TypeScriptソースコードのルートディレクトリ
+    // src配下をコンパイル対象として扱う
+
+    "declaration": true,
+    // 型定義ファイル（.d.ts）を生成する
+    // ライブラリ開発時などに他のプロジェクトから型情報を利用できる
+
+    // =========================
+    // その他
+    // =========================
+
+    "skipLibCheck": true,
+    // ライブラリの型チェックを省略する
+    // ビルド時間を短縮するため実務でもよく使われる
+
+    "forceConsistentCasingInFileNames": true
+    // ファイル名の大文字・小文字を厳密に扱う
+    // OSによる大文字・小文字の違いで起きるバグを防ぐ
+  },
+
+  "include": ["src/**/*"],
+  // コンパイル対象に含めるファイル・ディレクトリ
+  // src配下のすべてのTypeScriptファイルを対象にする
+
+  "exclude": ["node_modules", "dist"]
+  // コンパイル対象から除外するファイル・ディレクトリ
+  // ライブラリや生成されたJavaScriptは対象外にする
+}
